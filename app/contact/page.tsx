@@ -92,13 +92,13 @@ export default function Contact() {
                     <div>
                         <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
                         <p>123 Security Street</p>
-                        <p>Safetown, ST 12345</p>
-                        <p>United States</p>
+                        <p>Nasr-City</p>
+                        <p>Cairo, Egypt</p>
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-                        <p>Phone: (555) 123-4567</p>
-                        <p>Email: info@berimbolosecurity.com</p>
+                        <p>Phone: (20) 1150665030</p>
+                        <p>Email: omarfahem11@gmail.com</p>
                         <p>Hours: Monday - Friday, 9am - 5pm</p>
                     </div>
                 </div>

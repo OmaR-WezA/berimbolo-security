@@ -20,11 +20,7 @@ module.exports = {
   },
 };
 
-// module.exports = {
-//   typescript: {
-//     ignoreBuildErrors: true,
-//   },
-// };
+
 
 
 

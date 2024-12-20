@@ -92,7 +92,7 @@ const products = [
     {
         id: 11,
         name: "Security Camera with AI",
-        image: "/ai-security-camera.jpg",
+        image: "/smart-light-bulb.jpg",
         price: 199.99,
         description: "Security camera with AI-powered facial recognition.",
         category: "cameras"
@@ -100,7 +100,7 @@ const products = [
     {
         id: 12,
         name: "Smart Home Hub",
-        image: "/home-hub.jpg",
+        image: "/product-2.jpg",
         price: 249.99,
         description: "Centralized hub for controlling all your smart home devices.",
         category: "hubs"
@@ -108,7 +108,7 @@ const products = [
     {
         id: 13,
         name: "Floodlight Camera",
-        image: "/floodlight-camera.jpg",
+        image: "/product-3.jfif",
         price: 229.99,
         description: "Outdoor floodlight camera with motion detection.",
         category: "cameras"
@@ -116,7 +116,7 @@ const products = [
     {
         id: 14,
         name: "Smart Plug",
-        image: "/smart-plug.jpg",
+        image: "/product-4.jpg",
         price: 29.99,
         description: "Smart plug for remote control of electrical appliances.",
         category: "lighting"
@@ -124,7 +124,7 @@ const products = [
     {
         id: 15,
         name: "Leak Detector",
-        image: "/leak-detector.jpg",
+        image: "/product-5.jfif",
         price: 39.99,
         description: "Wireless sensor to detect leaks and water damage.",
         category: "sensors"
@@ -132,7 +132,7 @@ const products = [
     {
         id: 16,
         name: "Smart Smoke Detector",
-        image: "/smoke-detector.jpg",
+        image: "/product-6.jfif",
         price: 99.99,
         description: "Smart smoke detector with remote alerts.",
         category: "sensors"
@@ -140,7 +140,7 @@ const products = [
     {
         id: 17,
         name: "Voice Assistant Speaker",
-        image: "/voice-assistant-speaker.jpg",
+        image: "/preview-5.png",
         price: 79.99,
         description: "Voice-controlled speaker for home automation.",
         category: "hubs"
@@ -148,7 +148,7 @@ const products = [
     {
         id: 18,
         name: "Pet Tracker",
-        image: "/pet-tracker.jpg",
+        image: "/Motion-Sensor-1.png",
         price: 69.99,
         description: "GPS tracker for keeping tabs on your pets.",
         category: "sensors"
@@ -156,7 +156,7 @@ const products = [
     {
         id: 19,
         name: "Smart Light Switch",
-        image: "/smart-light-switch.jpg",
+        image: "/smart-light-bulb.jpg",
         price: 89.99,
         description: "Smart light switch for remote control and scheduling.",
         category: "lighting"
@@ -164,7 +164,7 @@ const products = [
     {
         id: 20,
         name: "Smart Water Valve",
-        image: "/smart-water-valve.jpg",
+        image: "/security-hero.jpg",
         price: 119.99,
         description: "Automated water valve for leak prevention and control.",
         category: "sensors"
@@ -172,7 +172,7 @@ const products = [
     {
         id: 21,
         name: "Home Security Alarm",
-        image: "/security-alarm.jpg",
+        image: "/preview-5.png",
         price: 169.99,
         description: "Loud alarm system with sensors and mobile alerts.",
         category: "locks"
@@ -180,7 +180,7 @@ const products = [
     {
         id: 22,
         name: "Smart Garage Door Opener",
-        image: "/garage-door-opener.jpg",
+        image: "/product-1.jpg",
         price: 249.99,
         description: "Smart garage opener with remote control and security features.",
         category: "locks"
@@ -188,7 +188,7 @@ const products = [
     {
         id: 23,
         name: "Smart Camera System",
-        image: "/camera-system.jpg",
+        image: "/product-2.jpg",
         price: 349.99,
         description: "Comprehensive camera system for whole-home security.",
         category: "cameras"
@@ -196,7 +196,7 @@ const products = [
     {
         id: 24,
         name: "Smart Home Security Kit",
-        image: "/security-kit.jpg",
+        image: "/product-4.jpg",
         price: 499.99,
         description: "Complete security kit with cameras, sensors, and alarm systems.",
         category: "hubs"
@@ -216,7 +216,7 @@ export default function Products() {
     return (
         <main className="py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-4xl font-bold mb-8 text-center">Our Products</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">Berimbolo Products</h1>
 
                 <div className="flex flex-col md:flex-row justify-between mb-8">
                     <Input
