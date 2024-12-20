@@ -189,7 +189,7 @@ export default function Home() {
           <ul className="grid-list">
             <li className="testimonial-card">
               <div className="card-icon">
-                <img src="./assets/images/customer-1.jfif" alt="Client Photo 1" className="testimonial-img" />
+                <img src="/customer-1.jfif" alt="Client Photo 1" className="testimonial-img" />
               </div>
               <div className="card-content">
                 <h3 className="h3 card-title">John Doe</h3>
@@ -203,7 +203,7 @@ export default function Home() {
 
             <li className="testimonial-card">
               <div className="card-icon">
-                <img src="./assets/images/customer-2.jfif" alt="Client Photo 2" className="testimonial-img" />
+                <img src="/customer-2.jfif" alt="Client Photo 2" className="testimonial-img" />
               </div>
               <div className="card-content">
                 <h3 className="h3 card-title">Jane Smith</h3>
@@ -216,7 +216,7 @@ export default function Home() {
 
             <li className="testimonial-card">
               <div className="card-icon">
-                <img src="./assets/images/customer-3.jfif" alt="Client Photo 3" className="testimonial-img" />
+                <img src="/customer-3.jfif" alt="Client Photo 3" className="testimonial-img" />
               </div>
               <div className="card-content">
                 <h3 className="h3 card-title">Michael Brown</h3>
@@ -231,15 +231,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Secure Your Property?</h2>
-          <p className="text-xl mb-8">Get in touch with us for a free consultation and quote.</p>
-          <Button asChild size="lg">
-            <Link href="/contact">Contact Us Now</Link>
-          </Button>
-        </div>
-      </section> */}
     </>
   )
 }
