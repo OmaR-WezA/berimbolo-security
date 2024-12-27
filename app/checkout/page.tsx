@@ -1,23 +1,35 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useCart } from '@/contexts/CartContext'
+import { useUser } from '@/contexts/UserContext'
 
 export default function Checkout() {
     const router = useRouter()
     const { cart, clearCart } = useCart()
+    const { user } = useUser()
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         address: '',
         city: '',
         zipCode: '',
-        country: ''
+        country: '',
+        cardNumber: '',
+        expirationDate: '',
+        cvv: ''
     })
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        if (!user) {
+            router.push('/login?redirect=checkout')
+        }
+    }, [user, router])
 
     const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -29,12 +41,41 @@ export default function Checkout() {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        // Here you would typically send the order data to a server
-        console.log('Order submitted:', { ...formData, cart, totalPrice })
-        clearCart()
-        router.push('/thank-you')
+        setError('')
+
+        try {
+            const response = await fetch('/api/complete-purchase', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cart,
+                    customerInfo: {
+                        fullName: formData.fullName,
+                        email: formData.email,
+                        address: `${formData.address}, ${formData.city}, ${formData.zipCode}, ${formData.country}`,
+                    },
+                }),
+            })
+
+            if (response.ok) {
+                clearCart()
+                router.push('/thank-you')
+            } else {
+                const data = await response.json()
+                setError(data.message || 'An error occurred during checkout')
+            }
+        } catch (error) {
+            console.error('Error submitting order:', error)
+            setError('An error occurred. Please try again.')
+        }
+    }
+
+    if (!user) {
+        return null // or a loading spinner
     }
 
     return (
@@ -113,6 +154,46 @@ export default function Checkout() {
                     </div>
 
                     <div className="border-t pt-6">
+                        <h2 className="text-xl font-semibold mb-4">Payment Information</h2>
+                        <div>
+                            <Label htmlFor="cardNumber">Card Number</Label>
+                            <Input
+                                type="text"
+                                id="cardNumber"
+                                name="cardNumber"
+                                value={formData.cardNumber}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <Label htmlFor="expirationDate">Expiration Date</Label>
+                                <Input
+                                    type="text"
+                                    id="expirationDate"
+                                    name="expirationDate"
+                                    placeholder="MM/YY"
+                                    value={formData.expirationDate}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <Label htmlFor="cvv">CVV</Label>
+                                <Input
+                                    type="text"
+                                    id="cvv"
+                                    name="cvv"
+                                    value={formData.cvv}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="border-t pt-6">
                         <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
                         {cart.map((item) => (
                             <div key={item.id} className="flex justify-between mb-2">
@@ -125,6 +206,7 @@ export default function Checkout() {
                         </div>
                     </div>
 
+                    {error && <p className="text-red-500">{error}</p>}
                     <Button type="submit" className="w-full">Place Order</Button>
                 </form>
             </div>
